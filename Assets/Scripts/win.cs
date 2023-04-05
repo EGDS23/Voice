@@ -10,6 +10,8 @@ public class win : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player")) 
         {
+            Time.timeScale = 0;
+            Cursor.lockState = CursorLockMode.None;
             victoryScreen.SetActive(true);
         }
     }
