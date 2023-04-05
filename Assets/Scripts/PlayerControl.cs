@@ -32,6 +32,8 @@ public class PlayerControl : MonoBehaviour
 
     [SerializeField]
     private GameObject gameOverImage;
+    [SerializeField]
+    private GameObject winImage;
 
 
     AudioSource source;
@@ -107,6 +109,7 @@ public class PlayerControl : MonoBehaviour
     {
         Time.timeScale = 1;
         gameOverImage.SetActive(false);
+        winImage.SetActive(false);
         transform.position = spawnPoint.position;
         Cursor.lockState = CursorLockMode.Locked;
     }
