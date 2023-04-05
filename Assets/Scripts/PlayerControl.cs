@@ -56,10 +56,6 @@ public class PlayerControl : MonoBehaviour
         movement *= moveSpeed;
         movement.y = rb.velocity.y;
         rb.velocity = movement;
-
-        /*if (Input.GetKeyDown("space") && grounded) {
-            rb.velocity = new Vector3(0, jumpSpeed, 0);
-        }*/
     }
 
     private void CameraRotation()
@@ -83,16 +79,20 @@ public class PlayerControl : MonoBehaviour
             //transform.position = spawnPoint.position;
             GameOver();
         }
-
-        if (collision.transform.CompareTag("Cliff"))
-        {
-            GameOver();
-        }
     }
 
     private void GameOver()
     {
         Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.None;
         gameOverImage.SetActive(true);
+    }
+
+    public void Restart()
+    {
+        Time.timeScale = 1;
+        gameOverImage.SetActive(false);
+        transform.position = spawnPoint.position;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }
