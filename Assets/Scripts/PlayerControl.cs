@@ -33,11 +33,15 @@ public class PlayerControl : MonoBehaviour
     [SerializeField]
     private GameObject gameOverImage;
 
+
+    AudioSource source;
+
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         rb = gameObject.GetComponent<Rigidbody>();
+        source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -47,6 +51,17 @@ public class PlayerControl : MonoBehaviour
         Movement();
     }
 
+    private void FixedUpdate()
+    {
+        if (rb.velocity.magnitude < 0.1f)
+        {
+            source.Stop();
+        }
+        else if (!source.isPlaying)
+        {
+            source.Play();
+        }
+    }
     private void Movement()
     {
         grounded = Physics.CheckSphere(bottomTransform.position, 0.1f, FloorMask);
