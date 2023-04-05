@@ -7,7 +7,7 @@ public class PlayerControl : MonoBehaviour
 {
     [SerializeField]
     private Transform spawnPoint;
-    
+
     [SerializeField]
     private float moveSpeed = 5;
     [SerializeField]
@@ -30,6 +30,9 @@ public class PlayerControl : MonoBehaviour
     private float mouseX, mouseY, xRotation, yRotation;
     private float multiplier = 0.01f;
 
+    [SerializeField]
+    private GameObject gameOverImage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +47,8 @@ public class PlayerControl : MonoBehaviour
         Movement();
     }
 
-    private void Movement() {
+    private void Movement()
+    {
         grounded = Physics.CheckSphere(bottomTransform.position, 0.1f, FloorMask);
         Vector3 movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
 
@@ -58,7 +62,8 @@ public class PlayerControl : MonoBehaviour
         }*/
     }
 
-    private void CameraRotation() {
+    private void CameraRotation()
+    {
         mouseX = Input.GetAxisRaw("Mouse X");
         mouseY = Input.GetAxisRaw("Mouse Y");
 
@@ -75,7 +80,19 @@ public class PlayerControl : MonoBehaviour
     {
         if (collision.transform.CompareTag("Monster"))
         {
-            transform.position = spawnPoint.position;
+            //transform.position = spawnPoint.position;
+            GameOver();
         }
+
+        if (collision.transform.CompareTag("Cliff"))
+        {
+            GameOver();
+        }
+    }
+
+    private void GameOver()
+    {
+        Time.timeScale = 0;
+        gameOverImage.SetActive(true);
     }
 }
