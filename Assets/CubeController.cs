@@ -3,6 +3,7 @@ using UnityEngine;
 public class CubeController : MonoBehaviour
 {
     public GameObject image;
+    public float speed = 1.2f;
 
     private Vector3 originalPos;
     private bool isFalling;
@@ -21,7 +22,7 @@ public class CubeController : MonoBehaviour
 
         if (isFalling)
         {
-            transform.Translate(Vector3.down * Time.deltaTime);
+            transform.Translate(Vector3.down * Time.deltaTime * speed);
 
             if (timer >= 2f)
             {
@@ -31,7 +32,7 @@ public class CubeController : MonoBehaviour
         }
         else
         {
-            transform.Translate(Vector3.up * Time.deltaTime);
+            transform.Translate(Vector3.up * Time.deltaTime * speed);
 
             if (timer >= 2f)
             {
