@@ -30,9 +30,9 @@ public class Shooter : MonoBehaviour
         remainingArrows = 0;
         isActive = false;
 
-
-        remainingArrows = arrowNum;
-        StartCoroutine(Activate());
+        // Testing
+        // remainingArrows = arrowNum;
+        // StartCoroutine(Activate());
     }
 
     public IEnumerator Activate()

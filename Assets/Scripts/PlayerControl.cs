@@ -36,14 +36,14 @@ public class PlayerControl : MonoBehaviour
     private GameObject winImage;
 
 
-    AudioSource source;
+    [SerializeField] AudioSource source;
+    [SerializeField] AudioSource hit;
 
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         rb = gameObject.GetComponent<Rigidbody>();
-        source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -94,6 +94,7 @@ public class PlayerControl : MonoBehaviour
         if (collision.transform.CompareTag("Monster"))
         {
             //transform.position = spawnPoint.position;
+            hit.Play();
             GameOver();
         }
     }
