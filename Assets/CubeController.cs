@@ -46,6 +46,8 @@ public class CubeController : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             image.SetActive(true);
+            Time.timeScale = 0;
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 }
