@@ -41,7 +41,8 @@ public class CubeController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    // Use detection from the player's side instead
+    /*private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -49,5 +50,5 @@ public class CubeController : MonoBehaviour
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.None;
         }
-    }
+    }*/
 }
