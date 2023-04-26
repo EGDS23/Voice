@@ -47651,6 +47651,8 @@ MonoBehaviour:
   sensY: 200
   gameOverImage: {fileID: 1198452167}
   winImage: {fileID: 1517098666}
+  hitSound: {fileID: 2357751931578862171, guid: 6be97d3f44cff5a4cb5c22906a2d5de4,
+    type: 3}
 --- !u!4 &8861720215752998610
 Transform:
   m_ObjectHideFlags: 0

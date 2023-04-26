@@ -35,6 +35,8 @@ public class PlayerControl : MonoBehaviour
     [SerializeField]
     private GameObject winImage;
 
+    [SerializeField]
+    public GameObject hitSound;
 
     AudioSource source;
 
@@ -103,6 +105,7 @@ public class PlayerControl : MonoBehaviour
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
         gameOverImage.SetActive(true);
+        Instantiate(hitSound, this.transform);
     }
 
     public void Restart()
