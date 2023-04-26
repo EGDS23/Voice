@@ -9,6 +9,11 @@ public class Arrow : MonoBehaviour
     private Vector3 _dir;
     private float _speed;
 
+    void Start()
+    {
+        transform.parent = null;
+
+    }
 
     void Update()
     {

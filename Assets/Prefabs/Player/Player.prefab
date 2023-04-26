@@ -89,6 +89,10 @@ MonoBehaviour:
   cam: {fileID: 8861720216057304894}
   sensX: 200
   sensY: 200
+  gameOverImage: {fileID: 0}
+  winImage: {fileID: 0}
+  hitSound: {fileID: 2357751931578862171, guid: 6be97d3f44cff5a4cb5c22906a2d5de4,
+    type: 3}
 --- !u!1 &8861720215870094025
 GameObject:
   m_ObjectHideFlags: 0
